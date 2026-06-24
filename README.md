@@ -7,6 +7,7 @@ A repository for public GeoJSON files, intended for use with [Lightdash](https:/
 | File | Description |
 |------|-------------|
 | [`uk/regions.geojson`](uk/regions.geojson) | UK regions (9 English regions + Wales, Scotland, Northern Ireland) |
+| [`uk/gbr_electricity_dno.geojson`](uk/gbr_electricity_dno.geojson) | GB electricity Distribution Network Operator (DNO) license areas (14 areas, as of 2024-05-03) |
 | [`world/countries.geojson`](world/countries.geojson) | World countries with ISO 3166 codes (simplified boundaries) |
 
 ## Using with Lightdash
@@ -24,6 +25,11 @@ https://raw.githubusercontent.com/brettshirley/geojson/main/<path-to-file>
 https://raw.githubusercontent.com/brettshirley/geojson/main/uk/regions.geojson
 ```
 
+**GB Electricity DNO License Areas:**
+```
+https://raw.githubusercontent.com/brettshirley/geojson/main/uk/gbr_electricity_dno.geojson
+```
+
 **World Countries:**
 ```
 https://raw.githubusercontent.com/brettshirley/geojson/main/world/countries.geojson
@@ -34,9 +40,10 @@ https://raw.githubusercontent.com/brettshirley/geojson/main/world/countries.geoj
 ```
 geojson/
 ├── uk/
-│   └── regions.geojson       # UK regions with ONS codes and names
+│   ├── regions.geojson                # UK regions with ONS codes and names
+│   └── gbr_electricity_dno.geojson    # GB electricity DNO license areas
 └── world/
-    └── countries.geojson     # World countries with ISO 3166 alpha-2 and alpha-3 codes
+    └── countries.geojson              # World countries with ISO 3166 alpha-2 and alpha-3 codes
 ```
 
 ## GeoJSON Properties
@@ -49,6 +56,31 @@ Each feature has the following properties:
 |----------|-------------|---------|
 | `name` | Region name | `"London"` |
 | `code` | ONS geography code | `"E12000007"` |
+
+### GB Electricity DNO License Areas (`uk/gbr_electricity_dno.geojson`)
+
+Distribution Network Operator (DNO) license areas for Great Britain (England, Scotland, and Wales). Source data dated 2024-05-03. Contains 14 features covering the 14 DNO regions operated by 6 DNO companies.
+
+Each feature has the following properties:
+
+| Property | Description | Example |
+|----------|-------------|---------|
+| `ID` | Numeric area identifier | `10` |
+| `Name` | Internal area name code | `"_A"` |
+| `DNO` | DNO short code | `"UKPN"` |
+| `Area` | DNO license area name | `"East England"` |
+| `DNO_Full` | Full DNO company name | `"UK Power Networks"` |
+
+DNO codes:
+
+| Code | Company | Areas |
+|------|---------|-------|
+| `ENWL` | Electricity North West | North West England |
+| `NGED` | National Grid Electricity Distribution | East Midlands, West Midlands, South Wales, South West England |
+| `NPG` | Northern Powergrid | North East England, Yorkshire |
+| `SPEN` | SP Energy Networks | North Wales, Merseyside and Cheshire; South and Central Scotland |
+| `SSEN` | Scottish and Southern Electricity Networks | North Scotland, Southern England |
+| `UKPN` | UK Power Networks | East England, London, South East England |
 
 ### World Countries (`world/countries.geojson`)
 
