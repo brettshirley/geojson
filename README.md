@@ -6,8 +6,8 @@ A repository for public GeoJSON files, intended for use with [Lightdash](https:/
 
 | File | Description |
 |------|-------------|
-| [`uk/regions.geojson`](uk/regions.geojson) | UK regions (9 English regions + Wales, Scotland, Northern Ireland) |
-| [`uk/gbr_electricity_dno.geojson`](uk/gbr_electricity_dno.geojson) | GB electricity Distribution Network Operator (DNO) license areas (14 areas, as of 2024-05-03) |
+| [`gbr/regions.geojson`](gbr/regions.geojson) | UK regions (9 English regions + Wales, Scotland, Northern Ireland) |
+| [`gbr/gbr_electricity_dno.geojson`](gbr/gbr_electricity_dno.geojson) | GB electricity Distribution Network Operator (DNO) license areas (14 areas, as of 2024-05-03) |
 | [`world/countries.geojson`](world/countries.geojson) | World countries with ISO 3166 codes (simplified boundaries) |
 
 ## Using with Lightdash
@@ -22,12 +22,12 @@ https://raw.githubusercontent.com/brettshirley/geojson/main/<path-to-file>
 
 **UK Regions:**
 ```
-https://raw.githubusercontent.com/brettshirley/geojson/main/uk/regions.geojson
+https://raw.githubusercontent.com/brettshirley/geojson/main/gbr/regions.geojson
 ```
 
 **GB Electricity DNO License Areas:**
 ```
-https://raw.githubusercontent.com/brettshirley/geojson/main/uk/gbr_electricity_dno.geojson
+https://raw.githubusercontent.com/brettshirley/geojson/main/gbr/gbr_electricity_dno.geojson
 ```
 
 **World Countries:**
@@ -39,7 +39,7 @@ https://raw.githubusercontent.com/brettshirley/geojson/main/world/countries.geoj
 
 ```
 geojson/
-├── uk/
+├── gbr/
 │   ├── regions.geojson                # UK regions with ONS codes and names
 │   └── gbr_electricity_dno.geojson    # GB electricity DNO license areas
 └── world/
@@ -48,7 +48,7 @@ geojson/
 
 ## GeoJSON Properties
 
-### UK Regions (`uk/regions.geojson`)
+### UK Regions (`gbr/regions.geojson`)
 
 Each feature has the following properties:
 
@@ -57,7 +57,7 @@ Each feature has the following properties:
 | `name` | Region name | `"London"` |
 | `code` | ONS geography code | `"E12000007"` |
 
-### GB Electricity DNO License Areas (`uk/gbr_electricity_dno.geojson`)
+### GB Electricity DNO License Areas (`gbr/gbr_electricity_dno.geojson`)
 
 Distribution Network Operator (DNO) license areas for Great Britain (England, Scotland, and Wales). Source data dated 2024-05-03. Contains 14 features covering the 14 DNO regions operated by 6 DNO companies.
 
