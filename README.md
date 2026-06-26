@@ -7,7 +7,8 @@ A repository for public GeoJSON files, intended for use with [Lightdash](https:/
 | File | Description |
 |------|-------------|
 | [`gbr/regions.geojson`](gbr/regions.geojson) | UK regions (9 English regions + Wales, Scotland, Northern Ireland) |
-| [`gbr/gbr_electricity_dno.geojson`](gbr/gbr_electricity_dno.geojson) | GB electricity Distribution Network Operator (DNO) license areas (14 areas, as of 2024-05-03) |
+| [`gbr/gbr_electricity_gsp_groups.geojson`](gbr/gbr_electricity_gsp_groups.geojson) | GB electricity GSP Groups / DNO license areas (14 areas, as of 2024-05-03) |
+| [`gbr/gbr_electricity_gsp_regions.geojson`](gbr/gbr_electricity_gsp_regions.geojson) | GB electricity Grid Supply Point (GSP) regions (362 features, as of 2026-02-09) |
 | [`world/countries.geojson`](world/countries.geojson) | World countries with ISO 3166 codes (simplified boundaries) |
 
 ## Using with Lightdash
@@ -25,9 +26,14 @@ https://raw.githubusercontent.com/brettshirley/geojson/main/<path-to-file>
 https://raw.githubusercontent.com/brettshirley/geojson/main/gbr/regions.geojson
 ```
 
-**GB Electricity DNO License Areas:**
+**GB Electricity GSP Groups (DNO License Areas):**
 ```
-https://raw.githubusercontent.com/brettshirley/geojson/main/gbr/gbr_electricity_dno.geojson
+https://raw.githubusercontent.com/brettshirley/geojson/main/gbr/gbr_electricity_gsp_groups.geojson
+```
+
+**GB Electricity GSP Regions:**
+```
+https://raw.githubusercontent.com/brettshirley/geojson/main/gbr/gbr_electricity_gsp_regions.geojson
 ```
 
 **World Countries:**
@@ -40,8 +46,9 @@ https://raw.githubusercontent.com/brettshirley/geojson/main/world/countries.geoj
 ```
 geojson/
 ├── gbr/
-│   ├── regions.geojson                # UK regions with ONS codes and names
-│   └── gbr_electricity_dno.geojson    # GB electricity DNO license areas
+│   ├── regions.geojson                       # UK regions with ONS codes and names
+│   ├── gbr_electricity_gsp_groups.geojson    # GB electricity GSP Groups / DNO license areas
+│   └── gbr_electricity_gsp_regions.geojson   # GB electricity Grid Supply Point (GSP) regions
 └── world/
     └── countries.geojson              # World countries with ISO 3166 alpha-2 and alpha-3 codes
 ```
@@ -57,9 +64,9 @@ Each feature has the following properties:
 | `name` | Region name | `"London"` |
 | `code` | ONS geography code | `"E12000007"` |
 
-### GB Electricity DNO License Areas (`gbr/gbr_electricity_dno.geojson`)
+### GB Electricity GSP Groups (`gbr/gbr_electricity_gsp_groups.geojson`)
 
-Distribution Network Operator (DNO) license areas for Great Britain (England, Scotland, and Wales). Source data dated 2024-05-03. Contains 14 features covering the 14 DNO regions operated by 6 DNO companies.
+Grid Supply Point (GSP) Group areas for Great Britain (England, Scotland, and Wales). These correspond to the 14 Distribution Network Operator (DNO) license areas. Source data dated 2024-05-03. Contains 14 features covering the 14 DNO regions operated by 6 DNO companies.
 
 Each feature has the following properties:
 
@@ -81,6 +88,22 @@ DNO codes:
 | `SPEN` | SP Energy Networks | North Wales, Merseyside and Cheshire; South and Central Scotland |
 | `SSEN` | Scottish and Southern Electricity Networks | North Scotland, Southern England |
 | `UKPN` | UK Power Networks | East England, London, South East England |
+
+### GB Electricity GSP Regions (`gbr/gbr_electricity_gsp_regions.geojson`)
+
+Grid Supply Point (GSP) regions for Great Britain — a more granular subdivision of the GSP Groups. Source data dated 2026-02-09. Contains 362 features.
+
+Each feature has the following properties:
+
+| Property | Description | Example |
+|----------|-------------|---------|
+| `fid` | Feature ID | `1` |
+| `GSPs` | GSP identifier | `"LEGA_1"` |
+| `GSPGroup` | GSP Group code (matches `Name` in the GSP Groups file) | `"_D"` |
+| `SSEP17Zone` | SSEP 2017 zone number (1–17) | `7` |
+| `DSCPs` | DSCP identifier(s), if any | `null` |
+| `InGroup_` | Whether the region is part of the named group (`Y`/`N`, may be pipe-delimited for multi-group regions) | `"Y"` |
+| `CDCA_I030` | CDCA I030 identifier | `"=GSP_LEGA_1"` |
 
 ### World Countries (`world/countries.geojson`)
 
